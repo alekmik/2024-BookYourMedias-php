@@ -61,19 +61,6 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                <h2>Bandes dessinées</h2>
-                <div class="affichageMedias">
-                    {% for media in medias %}
-                        {% if media['id_categorie'] == 4 %}
-                            <a href="home/show?id={{ media.id }}">
-                            <div class="book">
-                                <img src="{{ media.image_couverture }}" alt="{{ media.titre }}" class="bookCover">
-                                <h1 class="bookTitle">{{ media.titre }}</h1>
-                            </div>
-                            </a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
         </div>
     </div>
 {% endblock %}
