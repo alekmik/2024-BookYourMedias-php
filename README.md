@@ -2,13 +2,24 @@
 ## Description
 Réalisation d'une application web mettant en relation une médiathèque et ses consommateurs. L'utilisateur peut se connecter/s'inscrire et réserver des oeuvres. Un espace back-end est disponible pour les employés, permettant ainsi la gestion des délivrances des livres, films, albums.
 
+
+
+
 ## 💾 Comment installer le projet ?
 1. Cloner le dépôt Git sur son ordinateur.
 2. Lancer `composer install`, suivi de composer `dump-autoload`.
 3. Créer un fichier _config/db.php_, à partir du fichier _config/db.php.dist_ et ajouter les paramètres de votre base de données. Ne supprimer pas le fichier _.dist_.
+```php
+define('APP_DB_HOST', 'your_db_host');
+define('APP_DB_NAME', 'your_db_name');
+define('APP_DB_USER', 'your_db_user_wich_is_not_root');
+define('APP_DB_PASSWORD', 'your_db_password');
+```
 4. Importez _database.sql_ dans votre serveur SQL, vous pouvez le faire manuellement ou utiliser le script **migration.php** qui importera un fichier _database.sql_. Lancer : `php migration.php`.
 5. Exécutez le serveur web PHP interne avec `php -S localhost:8000 -t public`. L'option -t avec public comme paramètre signifie que votre hôte local ciblera le dossier /public.
 6. Allez sur http://localhost:8000 avec votre navigateur préféré.
+
+
 
 
 ## 🧑‍💻 Comment attribuer le rôle d'administrateur à un utilisateur ?
