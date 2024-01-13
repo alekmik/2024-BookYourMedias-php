@@ -1,79 +1,23 @@
-# Simple MVC
-
+# 🔖 Bienvenue sur Book Your Medias !
 ## Description
+Réalisation d'une application web mettant en relation une médiathèque et ses consommateurs. L'utilisateur peut se connecter/s'inscrire et réserver des oeuvres. Un espace back-end est disponible pour les employés, permettant ainsi la gestion des délivrances des livres, films, albums.
 
-This repository is a simple PHP MVC structure from scratch.
+## 💾 Comment installer le projet ?
+1. Cloner le dépôt Git sur son ordinateur.
+2. Lancer `composer install`, suivi de composer `dump-autoload`.
+3. Créer un fichier _config/db.php_, à partir du fichier _config/db.php.dist_ et ajouter les paramètres de votre base de données. Ne supprimer pas le fichier _.dist_.
+4. Importez _database.sql_ dans votre serveur SQL, vous pouvez le faire manuellement ou utiliser le script **migration.php** qui importera un fichier _database.sql_. Lancer : `php migration.php`.
+5. Exécutez le serveur web PHP interne avec `php -S localhost:8000 -t public`. L'option -t avec public comme paramètre signifie que votre hôte local ciblera le dossier /public.
+6. Allez sur http://localhost:8000 avec votre navigateur préféré.
 
-It uses some cool vendors/libraries such as Twig and Grumphp.
-For this one, just a simple example where users can choose one of their databases and see tables in it.
 
-## Steps
+## 🧑‍💻 Comment attribuer le rôle d'administrateur à un utilisateur ?
+Nous souhaitons rendre administrateur l'utilisateur suivant (insérer ces données via la page _Inscription_) :
+-   Email : _support@bookmedias.fr_
+-   Pseudo : _claudia-admin_
+-   Mot de passe : _admin_
 
-1. Clone the repo from Github.
-2. Run `composer install`.
-3. Create _config/db.php_ from _config/db.php.dist_ file and add your DB parameters. Don't delete the _.dist_ file, it must be kept.
-
-```php
-define('APP_DB_HOST', 'your_db_host');
-define('APP_DB_NAME', 'your_db_name');
-define('APP_DB_USER', 'your_db_user_wich_is_not_root');
-define('APP_DB_PASSWORD', 'your_db_password');
-```
-
-4. Import _database.sql_ in your SQL server, you can do it manually or use the _migration.php_ script which will import a _database.sql_ file.
-5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter means your localhost will target the `/public` folder.
-6. Go to `localhost:8000` with your favorite browser.
-7. From this starter kit, create your own web application.
-
-### Windows Users
-
-If you develop on Windows, you should edit you git configuration to change your end of line rules with this command :
-
-`git config --global core.autocrlf true`
-
-## Example
-
-An example (a basic list of items) is provided (you can load the _simple-mvc.sql_ file in a test database). The accessible URLs are :
-
--   Home page at [localhost:8000/](localhost:8000/)
--   Items list at [localhost:8000/items](localhost:8000/items)
--   Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
--   Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
--   Item add [localhost:8000/items/add](localhost:8000/items/add)
--   Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
-
-You can find all these routes declared in the file `src/routes.php`. This is the very same file where you'll add your own new routes to the application.
-
-## How does URL routing work ?
-
-![simple_MVC.png](.tours/simple_MVC.png)
-
-## Ask for a tour !
-
-<img src="./.tours/photo-1632178151697-fd971baa906f.jpg" alt="Guided tour" width="150"/>
-
-We prepare a little guided tour to start with the simple-MVC.
-
-To take it, you need to install the `Code Tour` extension for Visual Studio Code : [Code Tour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
-
-It will give access to a new menu on your IDE where you'll find the different tours about the simple-MVC. Click on play to start one :
-
-![menu](.tours/code_tour_menu.png)
-
-## Run it on docker
-
-If you don't know what is docker, skip this chapter. ;)
-
-Otherwise, you probably see, this project is ready to use with docker.
-
-To build the image, go into the project directory and in your CLI type:
-
-```
-docker build -t simple-mvc-container .
-```
-
-then, run it to open it on your localhot :
-
-```
-docker run -i -t --name simple-mvc  -p 80:80 simple-mvc-container
-```
+1.  Avant tout, l’utilisateur doit se déconnecter.
+2. Ouvrir un terminal et se connecter sur mysql. Commande : `mysql -u nomUtilisateur -p`.
+3. Après s'être placer sur la bonne base de donnée, lancer la commande `UPDATE user SET role=1 WHERE pseudo="claudia-admin";`. 
+4. Lorsque _claudia-admin_ se connectera, un lien vers le back office sera disponible.
