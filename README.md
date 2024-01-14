@@ -7,8 +7,8 @@ Réalisation d'une application web mettant en relation une médiathèque et ses 
 
 ## 💾 Comment installer le projet ?
 1. Cloner le dépôt Git sur son ordinateur.
-2. Lancer `composer install`, suivi de composer `dump-autoload`.
-3. Créer un fichier _config/db.php_, à partir du fichier _config/db.php.dist_ et ajouter les paramètres de votre base de données. Ne supprimer pas le fichier _.dist_.
+2. Entrer dans le dossier racine et lancer `composer install`, suivi de `composer dump-autoload`.
+3. Créer un fichier _config/db.php_, à partir du fichier _config/db.php.dist_ et ajouter les paramètres de votre base de données. Ne pas supprimer le fichier _.dist_.
 ```php
 define('APP_DB_HOST', 'your_db_host');
 define('APP_DB_NAME', 'your_db_name');
